@@ -1,9 +1,8 @@
-FROM robtimmer/alpine-nginx-pagespeed
+FROM mortimor/nginx-pagespeed
 
-VOLUME ["/etc/nginx", "/wwwroot"]
-
-#Add www-data user and group with IDs 2500
+#Add www-data user and group with IDs 82
 RUN addgroup -g 82 -S www-data \
         && adduser -u 82 -S www-data -h /sbin/nologin -G www-data
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+#Add deploy user with UID 2500
+RUN adduser -u 2500 -S deploy -h /bin/bash -G www-data
