@@ -9,4 +9,4 @@ if  grep -r "varnish:6081" /etc/nginx ;then
 	echo "Found 'varnish'. Starting Nginx." >> /var/log/nginx/startup.log
 fi
 
-exec /usr/sbin/nginx -g daemon off
+exec /usr/sbin/nginx -g "daemon off;"
