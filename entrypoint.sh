@@ -1,5 +1,5 @@
 #!/bin/bash
-
+> /var/log/nginx/startup.log
 if  grep -r "varnish:6081" /etc/nginx ;then
 	echo "Looking for 'varnish'..." >> /var/log/nginx/startup.log
 	while ! ping -c1 varnish 1>/dev/null 2>/dev/null ;do
