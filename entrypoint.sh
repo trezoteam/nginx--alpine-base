@@ -1,12 +1,4 @@
 #!/bin/bash
-> /var/log/nginx/startup.log
-if  grep -r "varnish:6081" /etc/nginx ;then
-	echo "Looking for 'varnish'..." >> /var/log/nginx/startup.log
-	while ! ping -c1 varnish 1>/dev/null 2>/dev/null ;do
-		echo "Unable to resolve 'varnish'. Trying again in 5s" >> /var/log/nginx/startup.log
-		sleep 5
-	done
-	echo "Found 'varnish'. Starting Nginx." >> /var/log/nginx/startup.log
-fi
-
+echo "127.0.0.1 nginx" >> /etc/hosts && echo "127.0.0.1 varnish" >> /etc/hosts
+sed -i 's/^hosts:.*/hosts: dns files/g' /etc/nsswitch.conf
 exec /usr/sbin/nginx -g "daemon off;"
