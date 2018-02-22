@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "127.0.0.1 nginx" >> /etc/hosts
 
-if [ -f /etc/opt/nginx_hosts ];then
-  cat /etc/opt/nginx_hosts >> /etc/hosts
+if [ -f /etc/opt/nginx/hosts ];then
+  cat /etc/opt/nginx/hosts >> /etc/hosts
 else
   echo "127.0.0.1 varnish" >> /etc/hosts 
 fi
