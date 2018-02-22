@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "127.0.0.1 nginx" >> /etc/hosts
-
+sleep 5
 if [ -f /etc/opt/nginx/hosts ];then
   cat /etc/opt/nginx/hosts >> /etc/hosts
 else
